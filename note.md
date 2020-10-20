@@ -13,3 +13,7 @@ pip freeze >requirements.txt
 
 pip install -r requirements.txt
 
+PermissionError:
+python -m pip install -U pip --user
+
+https://pypi.python.org/simple
