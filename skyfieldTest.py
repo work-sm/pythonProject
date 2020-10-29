@@ -42,6 +42,14 @@ for ti, event in zip(t, events):
     name = ('rise above 30°', 'culminate', 'set below 30°')[event]
     print(ti.utc_strftime('%Y %b %d %H:%M:%S'), name)
 
-
+# 卫星相对于观察者位置
+t = ts.utc(2014, 1, 21, 22, 23, 4)
 difference = satellite - bluffton
-print(difference)
+topocentric = difference.at(t)
+alt, az, distance = topocentric.altaz()
+if alt.degrees > 0:
+    print('The ISS is above the horizon')
+
+print(alt)
+print(az)
+print(int(distance.km), 'km')
